@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export default function AuthLayout({
   children,
@@ -13,7 +13,7 @@ export default function AuthLayout({
           <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-sm font-bold text-white">
             D
           </span>
-          <span className="text-lg font-semibold tracking-tight">DevFlow</span>
+          <span className="text-lg font-semibold tracking-tight">FlowBoard</span>
         </Link>
         {children}
       </div>

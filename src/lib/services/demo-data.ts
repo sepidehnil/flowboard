@@ -1,4 +1,4 @@
-import {
+﻿import {
   ActivityType,
   InvoiceStatus,
   Prisma,
@@ -337,7 +337,7 @@ export async function seedDemoDataForUser(
       {
         userId,
         type: ActivityType.PROJECT_CREATED,
-        title: `Welcome to DevFlow, ${userName.split(" ")[0]}!`,
+        title: `Welcome to FlowBoard, ${userName.split(" ")[0]}!`,
         description: "Your workspace was seeded with sample data so you can explore immediately.",
         createdAt: new Date(),
       },

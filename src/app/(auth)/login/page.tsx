@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useActionState, useEffect } from "react";
@@ -33,7 +33,7 @@ export default function LoginPage() {
     <Card>
       <CardHeader>
         <CardTitle className="text-xl">Welcome back</CardTitle>
-        <CardDescription>Sign in to your DevFlow workspace</CardDescription>
+        <CardDescription>Sign in to your FlowBoard workspace</CardDescription>
       </CardHeader>
       <CardContent>
         <form action={formAction} className="space-y-4">
@@ -72,7 +72,7 @@ export default function LoginPage() {
             ) : null}
           </div>
           <Button type="submit" className="w-full" disabled={pending}>
-            {pending ? "Signing in…" : "Sign in"}
+            {pending ? "Signing inâ€¦" : "Sign in"}
           </Button>
         </form>
         <p className="mt-5 text-center text-sm text-foreground-muted">

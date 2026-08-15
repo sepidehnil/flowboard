@@ -1,11 +1,11 @@
-import { hash } from "bcryptjs";
+﻿import { hash } from "bcryptjs";
 import { PrismaClient } from "@prisma/client";
 import { seedDemoDataForUser } from "../src/lib/services/demo-data";
 
 const prisma = new PrismaClient();
 
 async function main() {
-  const email = "demo@devflow.app";
+  const email = "demo@FlowBoard.app";
   const existing = await prisma.user.findUnique({ where: { email } });
 
   if (existing) {
@@ -24,7 +24,7 @@ async function main() {
 
   await seedDemoDataForUser(user.id, user.name, prisma);
   console.log("Seeded demo user:");
-  console.log("  email:    demo@devflow.app");
+  console.log("  email:    demo@FlowBoard.app");
   console.log("  password: password123");
 }
 

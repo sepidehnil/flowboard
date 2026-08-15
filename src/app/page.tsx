@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 export default async function HomePage() {
@@ -16,7 +16,7 @@ export default async function HomePage() {
             <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-sm font-bold text-white">
               D
             </span>
-            <span className="text-lg font-semibold tracking-tight">DevFlow</span>
+            <span className="text-lg font-semibold tracking-tight">FlowBoard</span>
           </div>
           <div className="flex items-center gap-2">
             <Link
@@ -40,8 +40,8 @@ export default async function HomePage() {
             Run projects, clients, and revenue from one calm dashboard.
           </h1>
           <p className="mt-5 max-w-2xl text-base text-foreground-muted sm:text-lg">
-            DevFlow is a multi-user SaaS workspace with real authentication,
-            PostgreSQL-backed data, and per-user isolation — built as a
+            FlowBoard is a multi-user SaaS workspace with real authentication,
+            PostgreSQL-backed data, and per-user isolation â€” built as a
             production-style portfolio application.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">

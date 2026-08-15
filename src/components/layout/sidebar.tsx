@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -57,7 +57,7 @@ export function Sidebar({
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand text-sm font-bold text-white">
               D
             </span>
-            <span className="text-base font-semibold tracking-tight">DevFlow</span>
+            <span className="text-base font-semibold tracking-tight">FlowBoard</span>
           </Link>
           <button
             type="button"

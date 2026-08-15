@@ -1,21 +1,21 @@
-services:
+﻿services:
   db:
     image: postgres:16-alpine
-    container_name: devflow-db
+    container_name: flowboard-db
     restart: unless-stopped
     ports:
       - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: devflow
+      POSTGRES_DB: flowboard
     volumes:
-      - devflow_pg:/var/lib/postgresql/data
+      - flowboard_pg:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d devflow"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d flowboard"]
       interval: 5s
       timeout: 5s
       retries: 10
 
 volumes:
-  devflow_pg:
+  flowboard_pg:
