@@ -110,17 +110,11 @@ npm install --registry https://registry.npmjs.org/
 cp .env.example .env
 ```
 
-Edit `.env`:
+Edit `.env` with your Postgres URL (Neon or any PostgreSQL) and an auth secret:
 
 ```env
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/FlowBoard?schema=public"
+DATABASE_URL="postgresql://USER:PASSWORD@HOST/DB?sslmode=require"
 AUTH_SECRET="generate-with-openssl-rand-base64-32"
-```
-
-Start PostgreSQL (Docker recommended):
-
-```bash
-docker compose up -d
 ```
 
 Then:
