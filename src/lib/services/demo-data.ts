@@ -1,4 +1,4 @@
-﻿import {
+import {
   ActivityType,
   InvoiceStatus,
   Prisma,

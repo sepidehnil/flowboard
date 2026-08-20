@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -55,7 +55,7 @@ export function Sidebar({
         <div className="flex h-16 items-center justify-between px-5">
           <Link href="/dashboard" className="flex items-center gap-2.5" onClick={onClose}>
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand text-sm font-bold text-white">
-              D
+              F
             </span>
             <span className="text-base font-semibold tracking-tight">FlowBoard</span>
           </Link>

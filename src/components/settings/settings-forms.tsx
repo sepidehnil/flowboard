@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useActionState, useCallback } from "react";
 import { useSession } from "next-auth/react";
@@ -122,7 +122,7 @@ export function SettingsForms({
               ) : null}
             </div>
             <Button type="submit" disabled={profilePending}>
-              {profilePending ? "Savingâ€¦" : "Save profile"}
+              {profilePending ? "Saving..." : "Save profile"}
             </Button>
           </form>
         </CardContent>
@@ -160,7 +160,7 @@ export function SettingsForms({
               />
             </div>
             <Button type="submit" disabled={passwordPending}>
-              {passwordPending ? "Updatingâ€¦" : "Update password"}
+              {passwordPending ? "Updating..." : "Update password"}
             </Button>
           </form>
         </CardContent>

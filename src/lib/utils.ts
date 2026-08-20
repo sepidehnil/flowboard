@@ -15,7 +15,7 @@ export function formatCurrency(amount: number | string) {
 }
 
 export function formatDate(date: Date | string | null | undefined) {
-  if (!date) return "—";
+  if (!date) return " - ";
   const d = typeof date === "string" ? new Date(date) : date;
   return new Intl.DateTimeFormat("en-US", {
     month: "short",

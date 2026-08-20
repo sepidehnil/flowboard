@@ -14,7 +14,7 @@ export default async function HomePage() {
         <header className="flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-sm font-bold text-white">
-              D
+              F
             </span>
             <span className="text-lg font-semibold tracking-tight">FlowBoard</span>
           </div>
@@ -35,14 +35,13 @@ export default async function HomePage() {
         </header>
 
         <main className="flex flex-1 flex-col justify-center py-16">
-          <p className="mb-4 text-sm font-medium text-brand">Freelance operations, clarified</p>
+          <p className="mb-4 text-sm font-medium text-brand">Built for freelancers and developers</p>
           <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            Run projects, clients, and revenue from one calm dashboard.
+            Your projects, clients, and invoices - in one place.
           </h1>
           <p className="mt-5 max-w-2xl text-base text-foreground-muted sm:text-lg">
-            FlowBoard is a multi-user SaaS workspace with real authentication,
-            PostgreSQL-backed data, and per-user isolation â€” built as a
-            production-style portfolio application.
+            Track delivery and revenue with a secure multi-user workspace where
+            every account stays private and every number comes from live data.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link

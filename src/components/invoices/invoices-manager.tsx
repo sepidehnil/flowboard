@@ -99,7 +99,7 @@ export function InvoicesManager({
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-foreground-subtle" />
           <Input
             className="pl-9"
-            placeholder="Search invoices…"
+            placeholder="Search invoices..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
@@ -144,7 +144,7 @@ export function InvoicesManager({
                   <tr key={invoice.id} className="border-b border-border last:border-0">
                     <td className="px-4 py-3 font-medium">{invoice.invoiceNumber}</td>
                     <td className="px-4 py-3 text-foreground-muted">
-                      {invoice.client?.company ?? invoice.client?.name ?? "—"}
+                      {invoice.client?.company ?? invoice.client?.name ?? " - "}
                     </td>
                     <td className="px-4 py-3 font-medium">
                       {formatCurrency(Number(invoice.amount))}
@@ -268,7 +268,7 @@ function InvoiceFormModal({
     : createInvoiceAction;
   const [state, formAction, pending] = useActionState(action, initial);
 
-  // Stabilize form values — Date.now()/new Date() in `values` re-runs every render
+  // Stabilize form values - Date.now()/new Date() in `values` re-runs every render
   // and causes "Maximum update depth exceeded" with react-hook-form.
   const formValues = useMemo<InvoiceInput>(() => {
     const today = new Date().toISOString().slice(0, 10);
@@ -348,7 +348,7 @@ function InvoiceFormModal({
         <div className="flex justify-end gap-2">
           <Button type="button" variant="outline" onClick={onClose}>Cancel</Button>
           <Button type="submit" disabled={pending}>
-            {pending ? "Saving…" : invoice ? "Save changes" : "Create invoice"}
+            {pending ? "Saving..." : invoice ? "Save changes" : "Create invoice"}
           </Button>
         </div>
       </form>

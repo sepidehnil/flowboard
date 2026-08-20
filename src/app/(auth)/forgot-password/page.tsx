@@ -57,7 +57,7 @@ export default function ForgotPasswordPage() {
             ) : null}
           </div>
           <Button type="submit" className="w-full" disabled={pending}>
-            {pending ? "Sending…" : "Send reset link"}
+            {pending ? "Sending..." : "Send reset link"}
           </Button>
         </form>
         <p className="mt-5 text-center text-sm text-foreground-muted">

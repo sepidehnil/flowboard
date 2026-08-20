@@ -88,7 +88,7 @@ export default function RegisterPage() {
             ) : null}
           </div>
           <Button type="submit" className="w-full" disabled={pending}>
-            {pending ? "Creating account…" : "Create account"}
+            {pending ? "Creating account..." : "Create account"}
           </Button>
         </form>
         <p className="mt-5 text-center text-sm text-foreground-muted">

@@ -119,7 +119,7 @@ export function ProjectsManager({
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-foreground-subtle" />
           <Input
             className="pl-9"
-            placeholder="Search projects…"
+            placeholder="Search projects..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
@@ -188,7 +188,7 @@ export function ProjectsManager({
                       ) : null}
                     </td>
                     <td className="px-4 py-3 text-foreground-muted">
-                      {project.client?.company ?? project.client?.name ?? "—"}
+                      {project.client?.company ?? project.client?.name ?? " - "}
                     </td>
                     <td className="px-4 py-3">
                       <StatusBadge status={project.status} kind="project" />
@@ -414,7 +414,7 @@ function ProjectFormModal({
             Cancel
           </Button>
           <Button type="submit" disabled={pending}>
-            {pending ? "Saving…" : project ? "Save changes" : "Create project"}
+            {pending ? "Saving..." : project ? "Save changes" : "Create project"}
           </Button>
         </div>
       </form>

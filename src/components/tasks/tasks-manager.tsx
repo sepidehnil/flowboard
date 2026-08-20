@@ -100,7 +100,7 @@ export function TasksManager({
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-foreground-subtle" />
           <Input
             className="pl-9"
-            placeholder="Search tasks…"
+            placeholder="Search tasks..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
@@ -150,7 +150,7 @@ export function TasksManager({
                   <tr key={task.id} className="border-b border-border last:border-0">
                     <td className="px-4 py-3 font-medium">{task.title}</td>
                     <td className="px-4 py-3 text-foreground-muted">
-                      {task.project?.name ?? "—"}
+                      {task.project?.name ?? " - "}
                     </td>
                     <td className="px-4 py-3">
                       <StatusBadge status={task.status} kind="task" />
@@ -332,7 +332,7 @@ function TaskFormModal({
         <div className="flex justify-end gap-2">
           <Button type="button" variant="outline" onClick={onClose}>Cancel</Button>
           <Button type="submit" disabled={pending}>
-            {pending ? "Saving…" : task ? "Save changes" : "Create task"}
+            {pending ? "Saving..." : task ? "Save changes" : "Create task"}
           </Button>
         </div>
       </form>

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { useActionState, useEffect } from "react";
@@ -72,7 +72,7 @@ export default function LoginPage() {
             ) : null}
           </div>
           <Button type="submit" className="w-full" disabled={pending}>
-            {pending ? "Signing inâ€¦" : "Sign in"}
+            {pending ? "Signing in..." : "Sign in"}
           </Button>
         </form>
         <p className="mt-5 text-center text-sm text-foreground-muted">

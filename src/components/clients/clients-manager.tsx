@@ -83,7 +83,7 @@ export function ClientsManager({ clients }: { clients: ClientRow[] }) {
         <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-foreground-subtle" />
         <Input
           className="pl-9"
-          placeholder="Search clients…"
+          placeholder="Search clients..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
@@ -231,7 +231,7 @@ function ClientFormModal({
         <div className="flex justify-end gap-2">
           <Button type="button" variant="outline" onClick={onClose}>Cancel</Button>
           <Button type="submit" disabled={pending}>
-            {pending ? "Saving…" : client ? "Save changes" : "Create client"}
+            {pending ? "Saving..." : client ? "Save changes" : "Create client"}
           </Button>
         </div>
       </form>

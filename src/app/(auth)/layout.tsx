@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 export default function AuthLayout({
   children,
@@ -11,7 +11,7 @@ export default function AuthLayout({
       <div className="relative mx-auto flex min-h-screen max-w-md flex-col justify-center px-6 py-10">
         <Link href="/" className="mb-8 flex items-center justify-center gap-2.5">
           <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-sm font-bold text-white">
-            D
+            F
           </span>
           <span className="text-lg font-semibold tracking-tight">FlowBoard</span>
         </Link>

@@ -1,6 +1,6 @@
 # FlowBoard
 
-FlowBoard is a production-style multi-user SaaS dashboard for freelancers and developers. Each authenticated user owns an isolated workspace of projects, tasks, clients, invoices, and activity â€” backed by PostgreSQL and secured on the server.
+FlowBoard is a production-style multi-user SaaS dashboard for freelancers and developers. Each authenticated user owns an isolated workspace of projects, tasks, clients, invoices, and activity - backed by PostgreSQL and secured on the server.
 
 Built as a portfolio-grade Next.js application demonstrating real authentication, database design, CRUD, analytics, and polished dashboard UX.
 
@@ -36,18 +36,18 @@ Built as a portfolio-grade Next.js application demonstrating real authentication
 
 ```text
 src/
-â”œâ”€â”€ app/
-â”‚   â”œâ”€â”€ (auth)/              # login, register, forgot-password
-â”‚   â”œâ”€â”€ (dashboard)/         # protected dashboard routes
-â”‚   â””â”€â”€ api/auth/            # Auth.js route handlers
-â”œâ”€â”€ actions/                 # Server Actions (CRUD + auth)
-â”œâ”€â”€ components/              # UI, layout, feature modules
-â”œâ”€â”€ lib/
-â”‚   â”œâ”€â”€ auth.ts
-â”‚   â”œâ”€â”€ db.ts
-â”‚   â”œâ”€â”€ validations/
-â”‚   â””â”€â”€ services/            # ownership helpers, demo data, analytics
-â””â”€â”€ types/
+|-- app/
+|   |-- (auth)/              # login, register, forgot-password
+|   |-- (dashboard)/         # protected dashboard routes
+|   `-- api/auth/            # Auth.js route handlers
+|-- actions/                 # Server Actions (CRUD + auth)
+|-- components/              # UI, layout, feature modules
+|-- lib/
+|   |-- auth.ts
+|   |-- db.ts
+|   |-- validations/
+|   `-- services/            # ownership helpers, demo data, analytics
+`-- types/
 ```
 
 - **Server Components by default** for data fetching
@@ -59,11 +59,11 @@ src/
 
 ```text
 User
- â”œâ”€â”€ Projects
- â”œâ”€â”€ Tasks
- â”œâ”€â”€ Clients
- â”œâ”€â”€ Invoices
- â””â”€â”€ Activities
+ |-- Projects
+ |-- Tasks
+ |-- Clients
+ |-- Invoices
+ `-- Activities
 ```
 
 Every owned row stores `userId`. Mutations load the resource with:
@@ -72,7 +72,7 @@ Every owned row stores `userId`. Mutations load the resource with:
 where: { id, userId: session.user.id }
 ```
 
-User A never receives User Bâ€™s rows â€” filtering is enforced on the server, not only in the UI.
+User A never receives User B's rows - filtering is enforced on the server, not only in the UI.
 
 ## Database schema (Prisma)
 
@@ -81,14 +81,14 @@ Core models: `User`, `Project`, `Task`, `Client`, `Invoice`, `Activity`, plus Au
 Enums:
 
 - Project: `PLANNED`, `IN_PROGRESS`, `COMPLETED`, `ON_HOLD`
-- Task: `TODO`, `IN_PROGRESS`, `DONE` + priority `LOW`â€“`URGENT`
+- Task: `TODO`, `IN_PROGRESS`, `DONE` + priority `LOW` - `URGENT`
 - Invoice: `DRAFT`, `SENT`, `PAID`, `OVERDUE`, `CANCELLED`
 
 ## Authentication
 
-1. Register â†’ password hashed with bcrypt â†’ user created â†’ **personal demo data seeded** â†’ session established
-2. Login â†’ credentials verified against hash â†’ JWT session
-3. Logout â†’ session cleared
+1. Register -> password hashed with bcrypt -> user created -> **personal demo data seeded** -> session established
+2. Login -> credentials verified against hash -> JWT session
+3. Logout -> session cleared
 4. Protected routes require a valid session (middleware + layout)
 
 Demo seed user (optional, via `npm run db:seed`):
@@ -184,5 +184,5 @@ Add portfolio screenshots here after running the app:
 
 ## License
 
-MIT â€” feel free to fork and adapt for your portfolio.
+MIT - feel free to fork and adapt for your portfolio.
 

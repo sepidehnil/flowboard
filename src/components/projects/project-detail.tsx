@@ -107,7 +107,7 @@ export function ProjectDetailView({
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        <MetaCard label="Client" value={project.client?.company ?? project.client?.name ?? "—"} />
+        <MetaCard label="Client" value={project.client?.company ?? project.client?.name ?? " - "} />
         <MetaCard label="Progress" value={formatPercent(project.progress)} />
         <MetaCard label="Deadline" value={formatDate(project.deadline)} />
         <MetaCard label="Created" value={formatDate(project.createdAt)} />
@@ -330,7 +330,7 @@ function ProjectEditModal({
         </div>
         <div className="flex justify-end gap-2">
           <Button type="button" variant="outline" onClick={onClose}>Cancel</Button>
-          <Button type="submit" disabled={pending}>{pending ? "Saving…" : "Save"}</Button>
+          <Button type="submit" disabled={pending}>{pending ? "Saving..." : "Save"}</Button>
         </div>
       </form>
     </Modal>
@@ -406,7 +406,7 @@ function TaskFormModal({
         </div>
         <div className="flex justify-end gap-2">
           <Button type="button" variant="outline" onClick={onClose}>Cancel</Button>
-          <Button type="submit" disabled={pending}>{pending ? "Saving…" : "Save task"}</Button>
+          <Button type="submit" disabled={pending}>{pending ? "Saving..." : "Save task"}</Button>
         </div>
       </form>
     </Modal>

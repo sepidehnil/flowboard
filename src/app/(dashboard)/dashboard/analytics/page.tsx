@@ -37,7 +37,7 @@ export default async function AnalyticsPage() {
       <div>
         <h2 className="text-2xl font-semibold tracking-tight">Analytics</h2>
         <p className="mt-1 text-sm text-foreground-muted">
-          Deeper view of delivery velocity and cashflow — all from your own data.
+          Deeper view of delivery velocity and cashflow - all from your own data.
         </p>
       </div>
 
