@@ -15,6 +15,7 @@ import {
 import { cn } from "@/lib/utils";
 import { logoutAction } from "@/actions/auth";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/brand/logo";
 
 const nav = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -53,11 +54,8 @@ export function Sidebar({
         )}
       >
         <div className="flex h-16 items-center justify-between px-5">
-          <Link href="/dashboard" className="flex items-center gap-2.5" onClick={onClose}>
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand text-sm font-bold text-white">
-              F
-            </span>
-            <span className="text-base font-semibold tracking-tight">FlowBoard</span>
+          <Link href="/dashboard" className="flex items-center" onClick={onClose}>
+            <Logo markClassName="h-8 w-8" wordmarkClassName="text-base" />
           </Link>
           <button
             type="button"

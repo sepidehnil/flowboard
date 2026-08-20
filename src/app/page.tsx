@@ -1,6 +1,8 @@
 ﻿import Link from "next/link";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
+import { Logo } from "@/components/brand/logo";
+
 export default async function HomePage() {
   const session = await auth();
   if (session?.user) {
@@ -12,12 +14,7 @@ export default async function HomePage() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(15,118,110,0.18),_transparent_55%),radial-gradient(ellipse_at_bottom_right,_rgba(37,99,235,0.12),_transparent_45%)]" />
       <div className="relative mx-auto flex min-h-screen max-w-5xl flex-col px-6 py-8">
         <header className="flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-sm font-bold text-white">
-              F
-            </span>
-            <span className="text-lg font-semibold tracking-tight">FlowBoard</span>
-          </div>
+          <Logo />
           <div className="flex items-center gap-2">
             <Link
               href="/login"
