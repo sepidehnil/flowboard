@@ -1,4 +1,4 @@
-﻿# FlowBoard
+# FlowBoard
 
 FlowBoard is a production-style multi-user SaaS dashboard for freelancers and developers. Each authenticated user owns an isolated workspace of projects, tasks, clients, invoices, and activity â€” backed by PostgreSQL and secured on the server.
 
