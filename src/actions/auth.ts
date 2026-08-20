@@ -30,7 +30,8 @@ function signInFailed(url: unknown) {
 }
 
 async function signInWithPassword(email: string, password: string) {
-  // redirect:false returns a URL string after setting the session cookie
+  // Let Auth.js set the session cookie, then hard-navigate to dashboard.
+  // Using redirect:false first avoids swallowing NEXT_REDIRECT inside useActionState.
   const url = await signIn("credentials", {
     email,
     password,
@@ -41,6 +42,7 @@ async function signInWithPassword(email: string, password: string) {
     return false;
   }
 
+  // Prefer Auth.js callback URL when present; always land on dashboard.
   redirect("/dashboard");
 }
 
