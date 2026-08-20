@@ -1,7 +1,10 @@
 "use server";
 
-import { hash } from "bcryptjs";
+import { hash, compare } from "bcryptjs";
 import { AuthError } from "next-auth";
+import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
+import { isRedirectError } from "next/dist/client/components/redirect-error";
 import { auth, signIn, signOut } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { seedDemoDataForUser } from "@/lib/services/demo-data";
@@ -13,8 +16,6 @@ import {
   profileSchema,
   registerSchema,
 } from "@/lib/validations";
-import { compare } from "bcryptjs";
-import { revalidatePath } from "next/cache";
 
 export type ActionResult = {
   error?: string;
@@ -22,6 +23,26 @@ export type ActionResult = {
   name?: string;
   email?: string;
 };
+
+function signInFailed(url: unknown) {
+  if (typeof url !== "string") return true;
+  return url.includes("error=") || url.includes("CredentialsSignin");
+}
+
+async function signInWithPassword(email: string, password: string) {
+  // redirect:false returns a URL string after setting the session cookie
+  const url = await signIn("credentials", {
+    email,
+    password,
+    redirect: false,
+  });
+
+  if (signInFailed(url)) {
+    return false;
+  }
+
+  redirect("/dashboard");
+}
 
 export async function registerAction(
   _prev: ActionResult,
@@ -56,26 +77,22 @@ export async function registerAction(
 
     await seedDemoDataForUser(user.id, user.name);
 
-    await signIn("credentials", {
-      email,
-      password: parsed.data.password,
-      redirectTo: "/dashboard",
-    });
+    const ok = await signInWithPassword(email, parsed.data.password);
+    if (!ok) {
+      return {
+        error:
+          "Account created, but automatic sign-in failed. Please log in.",
+      };
+    }
 
     return { success: "Account created" };
   } catch (error) {
+    if (isRedirectError(error)) throw error;
     if (error instanceof AuthError) {
-      return { error: "Could not sign you in after registration" };
-    }
-    // Next.js redirect throws; rethrow
-    if (
-      error &&
-      typeof error === "object" &&
-      "digest" in error &&
-      typeof (error as { digest?: string }).digest === "string" &&
-      (error as { digest: string }).digest.startsWith("NEXT_REDIRECT")
-    ) {
-      throw error;
+      return {
+        error:
+          "Account created, but automatic sign-in failed. Please log in.",
+      };
     }
     return toActionError(error);
   }
@@ -95,25 +112,19 @@ export async function loginAction(
       return { error: parsed.error.issues[0]?.message ?? "Invalid input" };
     }
 
-    await signIn("credentials", {
-      email: parsed.data.email.toLowerCase(),
-      password: parsed.data.password,
-      redirectTo: "/dashboard",
-    });
+    const ok = await signInWithPassword(
+      parsed.data.email.toLowerCase(),
+      parsed.data.password,
+    );
+    if (!ok) {
+      return { error: "Invalid email or password" };
+    }
 
     return { success: "Logged in" };
   } catch (error) {
+    if (isRedirectError(error)) throw error;
     if (error instanceof AuthError) {
       return { error: "Invalid email or password" };
-    }
-    if (
-      error &&
-      typeof error === "object" &&
-      "digest" in error &&
-      typeof (error as { digest?: string }).digest === "string" &&
-      (error as { digest: string }).digest.startsWith("NEXT_REDIRECT")
-    ) {
-      throw error;
     }
     return toActionError(error);
   }

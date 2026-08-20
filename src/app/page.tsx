@@ -1,33 +1,41 @@
 ﻿import Link from "next/link";
-import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { Logo } from "@/components/brand/logo";
 
 export default async function HomePage() {
   const session = await auth();
-  if (session?.user) {
-    redirect("/dashboard");
-  }
+  const signedIn = Boolean(session?.user);
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(15,118,110,0.18),_transparent_55%),radial-gradient(ellipse_at_bottom_right,_rgba(37,99,235,0.12),_transparent_45%)]" />
-      <div className="relative mx-auto flex min-h-screen max-w-5xl flex-col px-6 py-8">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col px-6 py-8">
         <header className="flex items-center justify-between">
-          <Logo />
+          <Logo href="/" />
           <div className="flex items-center gap-2">
-            <Link
-              href="/login"
-              className="inline-flex h-10 items-center rounded-lg px-4 text-sm font-medium text-foreground-muted hover:bg-surface-muted hover:text-foreground"
-            >
-              Log in
-            </Link>
-            <Link
-              href="/register"
-              className="inline-flex h-10 items-center rounded-lg bg-brand px-4 text-sm font-medium text-white hover:bg-brand-hover"
-            >
-              Get started
-            </Link>
+            {signedIn ? (
+              <Link
+                href="/dashboard"
+                className="inline-flex h-10 items-center rounded-lg bg-brand px-4 text-sm font-medium text-white hover:bg-brand-hover"
+              >
+                Open dashboard
+              </Link>
+            ) : (
+              <>
+                <Link
+                  href="/login"
+                  className="inline-flex h-10 items-center rounded-lg px-4 text-sm font-medium text-foreground-muted hover:bg-surface-muted hover:text-foreground"
+                >
+                  Log in
+                </Link>
+                <Link
+                  href="/register"
+                  className="inline-flex h-10 items-center rounded-lg bg-brand px-4 text-sm font-medium text-white hover:bg-brand-hover"
+                >
+                  Get started
+                </Link>
+              </>
+            )}
           </div>
         </header>
 

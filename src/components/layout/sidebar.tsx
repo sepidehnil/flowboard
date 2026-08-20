@@ -54,9 +54,12 @@ export function Sidebar({
         )}
       >
         <div className="flex h-16 items-center justify-between px-5">
-          <Link href="/dashboard" className="flex items-center" onClick={onClose}>
-            <Logo markClassName="h-8 w-8" wordmarkClassName="text-base" />
-          </Link>
+          <Logo
+            href="/dashboard"
+            markClassName="h-8 w-8"
+            wordmarkClassName="text-base"
+            onClick={onClose}
+          />
           <button
             type="button"
             className="rounded-md p-1 text-foreground-muted hover:bg-surface-muted lg:hidden"

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 type LogoProps = {
@@ -5,6 +6,8 @@ type LogoProps = {
   markClassName?: string;
   showWordmark?: boolean;
   wordmarkClassName?: string;
+  href?: string;
+  onClick?: () => void;
 };
 
 /** FlowBoard mark: kanban columns + flow curve on teal. */
@@ -62,9 +65,11 @@ export function Logo({
   markClassName,
   showWordmark = true,
   wordmarkClassName,
+  href,
+  onClick,
 }: LogoProps) {
-  return (
-    <span className={cn("inline-flex items-center gap-2.5", className)}>
+  const content = (
+    <>
       <LogoMark className={cn("h-9 w-9", markClassName)} />
       {showWordmark ? (
         <span
@@ -76,6 +81,27 @@ export function Logo({
           FlowBoard
         </span>
       ) : null}
+    </>
+  );
+
+  if (href) {
+    return (
+      <Link
+        href={href}
+        onClick={onClick}
+        className={cn(
+          "relative z-10 inline-flex cursor-pointer items-center gap-2.5",
+          className,
+        )}
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <span className={cn("inline-flex items-center gap-2.5", className)}>
+      {content}
     </span>
   );
 }
