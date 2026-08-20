@@ -16,7 +16,7 @@ export function DashboardShell({
   return (
     <div className="flex min-h-screen bg-background">
       <Sidebar user={user} open={open} onClose={() => setOpen(false)} />
-      <div className="flex min-w-0 flex-1 flex-col">
+      <div className="flex min-h-screen min-w-0 flex-1 flex-col">
         <DashboardHeader
           userName={user.name ?? "there"}
           onMenuClick={() => setOpen(true)}

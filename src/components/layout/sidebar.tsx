@@ -49,11 +49,15 @@ export function Sidebar({
       />
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-50 flex w-72 flex-col border-r border-border bg-surface transition-transform duration-300 lg:static lg:translate-x-0",
-          open ? "translate-x-0" : "-translate-x-full",
+          "flex w-72 shrink-0 flex-col border-r border-border bg-surface",
+          // Mobile: off-canvas drawer. Desktop: sticky full-height rail so the
+          // user footer stays visible while main content scrolls.
+          "fixed inset-y-0 left-0 z-50 h-dvh transition-transform duration-300",
+          "lg:sticky lg:top-0 lg:z-30 lg:h-screen lg:translate-x-0",
+          open ? "translate-x-0" : "-translate-x-full lg:translate-x-0",
         )}
       >
-        <div className="flex h-16 items-center justify-between px-5">
+        <div className="flex h-16 shrink-0 items-center justify-between px-5">
           <Logo
             href="/dashboard"
             markClassName="h-8 w-8"
@@ -69,7 +73,7 @@ export function Sidebar({
           </button>
         </div>
 
-        <nav className="flex-1 space-y-1 px-3 py-2">
+        <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-2">
           {nav.map((item) => {
             const active =
               item.href === "/dashboard"
@@ -95,7 +99,7 @@ export function Sidebar({
           })}
         </nav>
 
-        <div className="border-t border-border p-4">
+        <div className="shrink-0 border-t border-border p-4">
           <div className="mb-3 flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand/15 text-sm font-semibold text-brand">
               {(user.name ?? "U").charAt(0).toUpperCase()}
