@@ -160,13 +160,41 @@ Never commit real secrets. `.env` is gitignored; `.env.example` is safe to commi
 
 ## Screenshots
 
-Add portfolio screenshots here after running the app:
+### Marketing & auth
 
-- Login / register
-- Dashboard with charts
-- Projects table
-- Dark mode view
-- Mobile drawer navigation
+| Landing | Login |
+| --- | --- |
+| ![Landing](docs/screenshots/01-landing.png) | ![Login](docs/screenshots/02-login.png) |
+
+| Register | Forgot password |
+| --- | --- |
+| ![Register](docs/screenshots/03-register.png) | ![Forgot password](docs/screenshots/04-forgot-password.png) |
+
+### Dashboard
+
+| Overview | Dark mode |
+| --- | --- |
+| ![Dashboard](docs/screenshots/05-dashboard.png) | ![Dashboard dark](docs/screenshots/13-dashboard-dark.png) |
+
+| Projects | Project detail |
+| --- | --- |
+| ![Projects](docs/screenshots/06-projects.png) | ![Project detail](docs/screenshots/07-project-detail.png) |
+
+| Tasks | Clients |
+| --- | --- |
+| ![Tasks](docs/screenshots/08-tasks.png) | ![Clients](docs/screenshots/09-clients.png) |
+
+| Invoices | Analytics |
+| --- | --- |
+| ![Invoices](docs/screenshots/10-invoices.png) | ![Analytics](docs/screenshots/11-analytics.png) |
+
+![Settings](docs/screenshots/12-settings.png)
+
+### Mobile
+
+| Dashboard | Sidebar drawer |
+| --- | --- |
+| ![Mobile dashboard](docs/screenshots/14-mobile-dashboard.png) | ![Mobile sidebar](docs/screenshots/15-mobile-sidebar.png) |
 
 ## Future improvements
 
